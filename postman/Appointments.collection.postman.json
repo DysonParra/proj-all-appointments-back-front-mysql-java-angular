@@ -1,0 +1,4487 @@
+{
+	"info": {
+		"_postman_id": "ed0f2570-389d-48a7-8ad4-31b574448008",
+		"name": "Appointments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peticiones",
+			"item": [
+				{
+					"name": "Appointment",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"dtdateCreated\" : \"2020-03-07 05:23:10\",",
+                                            "  \"strClientName\" : \"\",",
+                                            "  \"strClientContact\" : \"\",",
+                                            "  \"dtStartTime\" : \"2020-03-07 05:23:10\",",
+                                            "  \"dtEndTimeExpected\" : \"2020-03-07 05:23:10\",",
+                                            "  \"dtEndTime\" : \"2020-03-07 05:23:10\",",
+                                            "  \"decPriceExpected\" : -1,",
+                                            "  \"decPriceFull\" : -1,",
+                                            "  \"decDiscount\" : -1,",
+                                            "  \"decPriceFinal\" : -1,",
+                                            "  \"bitCanceled\" : false,",
+                                            "  \"txtCancelationReason\" : \"\"",
+                                            "  /*",
+                                            "  \"intClientId\" : -1,",
+                                            "  \"intEmployeeCreated\" : -1,",
+                                            "  \"intEmployeeId\" : -1",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"dtdateCreated\" : \"2021-01-02 01:24:45\",",
+                                            "  \"strClientName\" : \"S12\",",
+                                            "  \"strClientContact\" : \"S12\",",
+                                            "  \"dtStartTime\" : \"2021-01-02 01:24:45\",",
+                                            "  \"dtEndTimeExpected\" : \"2021-01-02 01:24:45\",",
+                                            "  \"dtEndTime\" : \"2021-01-02 01:24:45\",",
+                                            "  \"decPriceExpected\" : 102,",
+                                            "  \"decPriceFull\" : 102,",
+                                            "  \"decDiscount\" : 102,",
+                                            "  \"decPriceFinal\" : 102,",
+                                            "  \"bitCanceled\" : true,",
+                                            "  \"txtCancelationReason\" : \"S12\"",
+                                            "  /*",
+                                            "  \"intClientId\" : 102,",
+                                            "  \"intEmployeeCreated\" : 102,",
+                                            "  \"intEmployeeId\" : 102",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'Appointment');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "Client",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strClientName\" : \"\",",
+                                            "  \"strContactMobile\" : \"\",",
+                                            "  \"strContactMail\" : \"\"",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strClientName\" : \"S12\",",
+                                            "  \"strContactMobile\" : \"S12\",",
+                                            "  \"strContactMail\" : \"S12\"",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'Client');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strFirstName\" : \"\",",
+                                            "  \"strLastName\" : \"\"",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strFirstName\" : \"S12\",",
+                                            "  \"strLastName\" : \"S12\"",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'Employee');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "Schedule",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"dtFrom\" : \"2020-03-07 05:23:10\",",
+                                            "  \"dtTo\" : \"2020-03-07 05:23:10\"",
+                                            "  /*",
+                                            "  \"intEmployeeId\" : -1",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"dtFrom\" : \"2021-01-02 01:24:45\",",
+                                            "  \"dtTo\" : \"2021-01-02 01:24:45\"",
+                                            "  /*",
+                                            "  \"intEmployeeId\" : 102",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'Schedule');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "ServiceBooked",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"decPrice\" : -1",
+                                            "  /*",
+                                            "  \"intAppointmentI\" : -1,",
+                                            "  \"intServiceId\" : -1",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"decPrice\" : 102",
+                                            "  /*",
+                                            "  \"intAppointmentI\" : 102,",
+                                            "  \"intServiceId\" : 102",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'ServiceBooked');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strServiceName\" : \"\",",
+                                            "  \"intDuration\" : -1,",
+                                            "  \"decPrice\" : -1",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"strServiceName\" : \"S12\",",
+                                            "  \"intDuration\" : 102,",
+                                            "  \"decPrice\" : 102",
+                                            "  /*",
+                                            "  ",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'Service');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+,
+				{
+					"name": "ServiceProvided",
+					"item": [
+						{
+							"name": "Obtener Todos los Registros",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insertar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"insertRequestBody = ",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"decPrice\" : -1",
+                                            "  /*",
+                                            "  \"intAppointmentI\" : -1,",
+                                            "  \"intServiceId\" : -1",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"insertRequestBody\", JSON.stringify(insertRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{insertRequestBody}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"updateRequestBody =",
+											"{",
+                                            "  \"intId\" : \"{{id}}\",",
+                                            "  \"decPrice\" : 102",
+                                            "  /*",
+                                            "  \"intAppointmentI\" : 102,",
+                                            "  \"intServiceId\" : 102",
+                                            "  */",
+                                            "}",
+											"pm.environment.set(\"updateRequestBody\", JSON.stringify(updateRequestBody));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{updateRequestBody}}"
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros (Resultado vacío)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía ('_embedded' undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Se obtuvieron enlaces.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._links).not.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Lista no está vacía ('_embedded' not undefined).\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData._embedded).not.be.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/search/0",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"search",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados (Resultado vacío)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/9/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"9",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Búsqueda no está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).not.be.eql(undefined);",
+											"    pm.expect(jsonData.length).not.be.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/0/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"0",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Registro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Se obtuvo respuesta del servidor\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Registros Paginados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body existe\", function () {",
+											"    pm.response.to.be.withBody; // body tiene que exitir",
+											"    pm.response.to.be.json;     // Que body sea un JSON válido",
+											"});",
+											"",
+											"pm.test(\"No ocurrió error.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.error).to.be.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"Body es un array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Lista está vacía.\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).be.to.eql(0);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{api}}/{{FolderName}}/{{pages}}?page=0&size=1",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{api}}",
+										"{{FolderName}}",
+										"{{pages}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set('FolderName', 'ServiceProvided');",
+									"pm.globals.set('id', '101');"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.globals.set('primaryKey', 101);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "http"
+		},
+		{
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"key": "port",
+			"value": "8080"
+		},
+		{
+			"key": "api",
+			"value": "api/v1"
+		},
+		{
+			"key": "pages",
+			"value": "pages"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
