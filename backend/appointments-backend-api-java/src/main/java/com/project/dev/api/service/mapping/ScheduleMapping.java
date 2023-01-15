@@ -48,7 +48,7 @@ public interface ScheduleMapping extends GenericMapping<ScheduleDTO, Schedule> {
     // Deben ser el campo clave de la base de datos.
     @Mapping(source = "intId", target = "intId")
     @Override
-    public ScheduleDTO obtenerDto(Schedule entity);
+    public ScheduleDTO getDto(Schedule entity);
 
     /**
      * TODO: Definición de {@code withId}.

@@ -60,7 +60,7 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public List<ServiceDTO> getAllEntities() throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Service");
-        return entityMapping.obtenerDto(entityRepository.findAll());
+        return entityMapping.getDto(entityRepository.findAll());
     }
 
     /**
@@ -73,7 +73,7 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public Page<ServiceDTO> getAllEntitiesPaged(Pageable pageable) throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Service con paginacion");
-        return entityRepository.findAll(pageable).map(entityMapping::obtenerDto);
+        return entityRepository.findAll(pageable).map(entityMapping::getDto);
     }
 
     /**
@@ -91,7 +91,7 @@ public class ServiceServiceImpl implements ServiceService {
         Service entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ServiceDTO actualEntity = entityMapping.obtenerDto(entity);
+        ServiceDTO actualEntity = entityMapping.getDto(entity);
         return actualEntity;
     }
 
@@ -107,7 +107,7 @@ public class ServiceServiceImpl implements ServiceService {
         log.debug("Solicitud para buscar la Entidad tipo Service: {}", id);
         Service searchedEntity = entityRepository.findById(Long.parseLong(id))
                 .orElseThrow(() -> new EntityNotFoundException(id));
-        return entityMapping.obtenerDto(searchedEntity);
+        return entityMapping.getDto(searchedEntity);
     }
 
     /**
@@ -132,7 +132,7 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public List<ServiceDTO> searchEntities(String query) throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Service: {}", query);
-        return entityMapping.obtenerDto(entityRepository.searchEntities(query));
+        return entityMapping.getDto(entityRepository.searchEntities(query));
     }
 
     /**
@@ -146,6 +146,6 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public Page<ServiceDTO> searchEntitiesPaged(String query, Pageable pageable) {
         log.debug("Solicitud para buscar una pagina de la entidad tipo Service para consulta {}", query);
-        return entityRepository.searchEntities(query, pageable).map(entityMapping::obtenerDto);
+        return entityRepository.searchEntities(query, pageable).map(entityMapping::getDto);
     }
 }

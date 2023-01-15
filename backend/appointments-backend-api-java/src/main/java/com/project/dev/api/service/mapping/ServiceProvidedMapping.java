@@ -48,7 +48,7 @@ public interface ServiceProvidedMapping extends GenericMapping<ServiceProvidedDT
     // Deben ser el campo clave de la base de datos.
     @Mapping(source = "intId", target = "intId")
     @Override
-    public ServiceProvidedDTO obtenerDto(ServiceProvided entity);
+    public ServiceProvidedDTO getDto(ServiceProvided entity);
 
     /**
      * TODO: Definición de {@code withId}.

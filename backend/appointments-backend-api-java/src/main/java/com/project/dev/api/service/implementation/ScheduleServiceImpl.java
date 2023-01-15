@@ -60,7 +60,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public List<ScheduleDTO> getAllEntities() throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Schedule");
-        return entityMapping.obtenerDto(entityRepository.findAll());
+        return entityMapping.getDto(entityRepository.findAll());
     }
 
     /**
@@ -73,7 +73,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public Page<ScheduleDTO> getAllEntitiesPaged(Pageable pageable) throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Schedule con paginacion");
-        return entityRepository.findAll(pageable).map(entityMapping::obtenerDto);
+        return entityRepository.findAll(pageable).map(entityMapping::getDto);
     }
 
     /**
@@ -91,7 +91,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         Schedule entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ScheduleDTO actualEntity = entityMapping.obtenerDto(entity);
+        ScheduleDTO actualEntity = entityMapping.getDto(entity);
         return actualEntity;
     }
 
@@ -107,7 +107,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         log.debug("Solicitud para buscar la Entidad tipo Schedule: {}", id);
         Schedule searchedEntity = entityRepository.findById(Long.parseLong(id))
                 .orElseThrow(() -> new EntityNotFoundException(id));
-        return entityMapping.obtenerDto(searchedEntity);
+        return entityMapping.getDto(searchedEntity);
     }
 
     /**
@@ -132,7 +132,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public List<ScheduleDTO> searchEntities(String query) throws Exception {
         log.debug("Solicitud para listar todas las Entidades tipo Schedule: {}", query);
-        return entityMapping.obtenerDto(entityRepository.searchEntities(query));
+        return entityMapping.getDto(entityRepository.searchEntities(query));
     }
 
     /**
@@ -146,6 +146,6 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public Page<ScheduleDTO> searchEntitiesPaged(String query, Pageable pageable) {
         log.debug("Solicitud para buscar una pagina de la entidad tipo Schedule para consulta {}", query);
-        return entityRepository.searchEntities(query, pageable).map(entityMapping::obtenerDto);
+        return entityRepository.searchEntities(query, pageable).map(entityMapping::getDto);
     }
 }

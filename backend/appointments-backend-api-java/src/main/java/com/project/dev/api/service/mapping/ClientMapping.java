@@ -48,7 +48,7 @@ public interface ClientMapping extends GenericMapping<ClientDTO, Client> {
     // Deben ser el campo clave de la base de datos.
     @Mapping(source = "intId", target = "intId")
     @Override
-    public ClientDTO obtenerDto(Client entity);
+    public ClientDTO getDto(Client entity);
 
     /**
      * TODO: Definición de {@code withId}.

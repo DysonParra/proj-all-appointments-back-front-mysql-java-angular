@@ -48,7 +48,7 @@ public interface EmployeeMapping extends GenericMapping<EmployeeDTO, Employee> {
     // Deben ser el campo clave de la base de datos.
     @Mapping(source = "intId", target = "intId")
     @Override
-    public EmployeeDTO obtenerDto(Employee entity);
+    public EmployeeDTO getDto(Employee entity);
 
     /**
      * TODO: Definición de {@code withId}.
