@@ -15,7 +15,7 @@
 package com.project.dev.api.web.rest;
 
 import com.project.dev.api.dto.ServiceDTO;
-import com.project.dev.api.service.ServiceService;
+import com.project.dev.api.service.implementation.ServiceServiceImpl;
 import com.project.dev.api.web.rest.assembler.ServiceRestAssembler;
 import com.project.dev.api.web.rest.util.PaginationUtil;
 import io.swagger.annotations.Api;
@@ -61,7 +61,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class ServiceRest {
 
     private final Logger log = LoggerFactory.getLogger(ServiceRest.class);
-    private final ServiceService entityService;
+    private final ServiceServiceImpl entityService;
     private final ServiceRestAssembler entityRestAssembler;
 
     /**
@@ -70,7 +70,7 @@ public class ServiceRest {
      * @param entityService       servicio de la entidad.
      * @param entityRestAssembler ensamblador de recurso de la entidad.
      */
-    public ServiceRest(ServiceService entityService,
+    public ServiceRest(ServiceServiceImpl entityService,
             ServiceRestAssembler entityRestAssembler) {
         this.entityService = entityService;
         this.entityRestAssembler = entityRestAssembler;

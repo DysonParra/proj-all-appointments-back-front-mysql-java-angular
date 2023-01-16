@@ -17,7 +17,7 @@ package com.project.dev.api.service.implementation;
 import com.project.dev.api.domain.Appointment;
 import com.project.dev.api.dto.AppointmentDTO;
 import com.project.dev.api.repository.AppointmentRepository;
-import com.project.dev.api.service.AppointmentService;
+import com.project.dev.api.service.GenericService;
 import com.project.dev.api.service.exception.EntityNotFoundException;
 import com.project.dev.api.service.mapping.AppointmentMapping;
 import java.util.List;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @org.springframework.stereotype.Service
-public class AppointmentServiceImpl implements AppointmentService {
+public class AppointmentServiceImpl implements GenericService<AppointmentDTO> {
 
     private final Logger log = LoggerFactory.getLogger(AppointmentServiceImpl.class);
     private final AppointmentRepository entityRepository;

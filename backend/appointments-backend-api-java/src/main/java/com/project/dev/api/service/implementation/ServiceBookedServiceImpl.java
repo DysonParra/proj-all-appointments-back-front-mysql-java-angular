@@ -17,7 +17,7 @@ package com.project.dev.api.service.implementation;
 import com.project.dev.api.domain.ServiceBooked;
 import com.project.dev.api.dto.ServiceBookedDTO;
 import com.project.dev.api.repository.ServiceBookedRepository;
-import com.project.dev.api.service.ServiceBookedService;
+import com.project.dev.api.service.GenericService;
 import com.project.dev.api.service.exception.EntityNotFoundException;
 import com.project.dev.api.service.mapping.ServiceBookedMapping;
 import java.util.List;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @org.springframework.stereotype.Service
-public class ServiceBookedServiceImpl implements ServiceBookedService {
+public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO> {
 
     private final Logger log = LoggerFactory.getLogger(ServiceBookedServiceImpl.class);
     private final ServiceBookedRepository entityRepository;

@@ -15,7 +15,7 @@
 package com.project.dev.api.web.rest;
 
 import com.project.dev.api.dto.ServiceBookedDTO;
-import com.project.dev.api.service.ServiceBookedService;
+import com.project.dev.api.service.implementation.ServiceBookedServiceImpl;
 import com.project.dev.api.web.rest.assembler.ServiceBookedRestAssembler;
 import com.project.dev.api.web.rest.util.PaginationUtil;
 import io.swagger.annotations.Api;
@@ -61,7 +61,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class ServiceBookedRest {
 
     private final Logger log = LoggerFactory.getLogger(ServiceBookedRest.class);
-    private final ServiceBookedService entityService;
+    private final ServiceBookedServiceImpl entityService;
     private final ServiceBookedRestAssembler entityRestAssembler;
 
     /**
@@ -70,7 +70,7 @@ public class ServiceBookedRest {
      * @param entityService       servicio de la entidad.
      * @param entityRestAssembler ensamblador de recurso de la entidad.
      */
-    public ServiceBookedRest(ServiceBookedService entityService,
+    public ServiceBookedRest(ServiceBookedServiceImpl entityService,
             ServiceBookedRestAssembler entityRestAssembler) {
         this.entityService = entityService;
         this.entityRestAssembler = entityRestAssembler;

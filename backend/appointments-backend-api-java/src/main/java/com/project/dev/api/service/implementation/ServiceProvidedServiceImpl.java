@@ -17,7 +17,7 @@ package com.project.dev.api.service.implementation;
 import com.project.dev.api.domain.ServiceProvided;
 import com.project.dev.api.dto.ServiceProvidedDTO;
 import com.project.dev.api.repository.ServiceProvidedRepository;
-import com.project.dev.api.service.ServiceProvidedService;
+import com.project.dev.api.service.GenericService;
 import com.project.dev.api.service.exception.EntityNotFoundException;
 import com.project.dev.api.service.mapping.ServiceProvidedMapping;
 import java.util.List;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @org.springframework.stereotype.Service
-public class ServiceProvidedServiceImpl implements ServiceProvidedService {
+public class ServiceProvidedServiceImpl implements GenericService<ServiceProvidedDTO> {
 
     private final Logger log = LoggerFactory.getLogger(ServiceProvidedServiceImpl.class);
     private final ServiceProvidedRepository entityRepository;

@@ -17,7 +17,7 @@ package com.project.dev.api.service.implementation;
 import com.project.dev.api.domain.Client;
 import com.project.dev.api.dto.ClientDTO;
 import com.project.dev.api.repository.ClientRepository;
-import com.project.dev.api.service.ClientService;
+import com.project.dev.api.service.GenericService;
 import com.project.dev.api.service.exception.EntityNotFoundException;
 import com.project.dev.api.service.mapping.ClientMapping;
 import java.util.List;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @org.springframework.stereotype.Service
-public class ClientServiceImpl implements ClientService {
+public class ClientServiceImpl implements GenericService<ClientDTO> {
 
     private final Logger log = LoggerFactory.getLogger(ClientServiceImpl.class);
     private final ClientRepository entityRepository;

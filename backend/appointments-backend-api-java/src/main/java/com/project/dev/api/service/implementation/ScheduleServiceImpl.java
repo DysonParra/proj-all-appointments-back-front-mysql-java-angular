@@ -17,7 +17,7 @@ package com.project.dev.api.service.implementation;
 import com.project.dev.api.domain.Schedule;
 import com.project.dev.api.dto.ScheduleDTO;
 import com.project.dev.api.repository.ScheduleRepository;
-import com.project.dev.api.service.ScheduleService;
+import com.project.dev.api.service.GenericService;
 import com.project.dev.api.service.exception.EntityNotFoundException;
 import com.project.dev.api.service.mapping.ScheduleMapping;
 import java.util.List;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @org.springframework.stereotype.Service
-public class ScheduleServiceImpl implements ScheduleService {
+public class ScheduleServiceImpl implements GenericService<ScheduleDTO> {
 
     private final Logger log = LoggerFactory.getLogger(ScheduleServiceImpl.class);
     private final ScheduleRepository entityRepository;

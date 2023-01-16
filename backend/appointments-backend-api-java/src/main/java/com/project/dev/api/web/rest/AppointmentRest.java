@@ -15,7 +15,7 @@
 package com.project.dev.api.web.rest;
 
 import com.project.dev.api.dto.AppointmentDTO;
-import com.project.dev.api.service.AppointmentService;
+import com.project.dev.api.service.implementation.AppointmentServiceImpl;
 import com.project.dev.api.web.rest.assembler.AppointmentRestAssembler;
 import com.project.dev.api.web.rest.util.PaginationUtil;
 import io.swagger.annotations.Api;
@@ -61,7 +61,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class AppointmentRest {
 
     private final Logger log = LoggerFactory.getLogger(AppointmentRest.class);
-    private final AppointmentService entityService;
+    private final AppointmentServiceImpl entityService;
     private final AppointmentRestAssembler entityRestAssembler;
 
     /**
@@ -70,7 +70,7 @@ public class AppointmentRest {
      * @param entityService       servicio de la entidad.
      * @param entityRestAssembler ensamblador de recurso de la entidad.
      */
-    public AppointmentRest(AppointmentService entityService,
+    public AppointmentRest(AppointmentServiceImpl entityService,
             AppointmentRestAssembler entityRestAssembler) {
         this.entityService = entityService;
         this.entityRestAssembler = entityRestAssembler;
