@@ -1,24 +1,20 @@
-DROP DATABASE IF EXISTS appointments;
-CREATE DATABASE IF NOT EXISTS appointments;
-USE appointments;
+DROP DATABASE IF EXISTS `appointments`;
+CREATE DATABASE IF NOT EXISTS `appointments`;
+USE `appointments`;
 
 CREATE TABLE IF NOT EXISTS `Schedule` (
     `intId`                             BIGINT              NOT NULL,
     `intEmployeeId`                     BIGINT                  NULL DEFAULT NULL,
     `dtFrom`                            DATETIME                NULL DEFAULT NULL,
     `dtTo`                              DATETIME                NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `Employee` (
     `intId`                             BIGINT              NOT NULL,
     `strFirstName`                      VARCHAR(64)             NULL DEFAULT NULL,
     `strLastName`                       VARCHAR(64)             NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `Client` (
@@ -26,9 +22,7 @@ CREATE TABLE IF NOT EXISTS `Client` (
     `strClientName`                     VARCHAR(128)            NULL DEFAULT NULL,
     `strContactMobile`                  VARCHAR(128)            NULL DEFAULT NULL,
     `strContactMail`                    VARCHAR(128)            NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `Service` (
@@ -36,9 +30,7 @@ CREATE TABLE IF NOT EXISTS `Service` (
     `strServiceName`                    VARCHAR(128)            NULL DEFAULT NULL,
     `intDuration`                       BIGINT                  NULL DEFAULT NULL,
     `decPrice`                          DECIMAL(10, 2)          NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `ServiceProvided` (
@@ -46,9 +38,7 @@ CREATE TABLE IF NOT EXISTS `ServiceProvided` (
     `intAppointmentI`                   BIGINT                  NULL DEFAULT NULL,
     `intServiceId`                      BIGINT                  NULL DEFAULT NULL,
     `decPrice`                          DECIMAL(10, 2)          NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `ServiceBooked` (
@@ -56,9 +46,7 @@ CREATE TABLE IF NOT EXISTS `ServiceBooked` (
     `intAppointmentI`                   BIGINT                  NULL DEFAULT NULL,
     `intServiceId`                      BIGINT                  NULL DEFAULT NULL,
     `decPrice`                          DECIMAL(10, 2)          NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 CREATE TABLE IF NOT EXISTS `Appointment` (
@@ -78,9 +66,7 @@ CREATE TABLE IF NOT EXISTS `Appointment` (
     `decPriceFinal`                     DECIMAL(10, 2)          NULL DEFAULT NULL,
     `bitCanceled`                       BIT                     NULL DEFAULT NULL,
     `txtCancelationReason`              TEXT                    NULL DEFAULT NULL,
-    PRIMARY KEY (
-        `intId` ASC
-    )
+    PRIMARY KEY (`intId` ASC)
 );
 
 -- ---------------------------- --
