@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeDTO} se encarga de realizar tareas específicas.
+ * @fileoverview    {EmployeeDTO}
  *
  * @version         2.0
  *

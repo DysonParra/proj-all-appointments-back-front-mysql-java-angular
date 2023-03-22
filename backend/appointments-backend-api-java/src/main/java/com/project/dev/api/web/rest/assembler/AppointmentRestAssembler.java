@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentRestAssembler} se encarga de realizar tareas específicas.
+ * @fileoverview    {AppointmentRestAssembler}
  *
  * @version         2.0
  *

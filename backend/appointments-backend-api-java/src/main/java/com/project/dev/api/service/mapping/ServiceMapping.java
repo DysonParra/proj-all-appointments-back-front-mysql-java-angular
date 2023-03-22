@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceMapping} se encarga de realizar tareas específicas.
+ * @fileoverview    {ServiceMapping}
  *
  * @version         2.0
  *

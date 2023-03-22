@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ClientRestAssembler} se encarga de realizar tareas específicas.
+ * @fileoverview    {ClientRestAssembler}
  *
  * @version         2.0
  *

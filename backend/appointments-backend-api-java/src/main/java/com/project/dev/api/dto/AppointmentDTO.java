@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentDTO} se encarga de realizar tareas específicas.
+ * @fileoverview    {AppointmentDTO}
  *
  * @version         2.0
  *

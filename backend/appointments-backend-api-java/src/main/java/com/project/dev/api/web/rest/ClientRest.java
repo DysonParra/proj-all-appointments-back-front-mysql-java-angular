@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ClientRest} se encarga de realizar tareas específicas.
+ * @fileoverview    {ClientRest}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleServiceImpl} se encarga de realizar tareas específicas.
+ * @fileoverview    {ScheduleServiceImpl}
  *
  * @version         2.0
  *

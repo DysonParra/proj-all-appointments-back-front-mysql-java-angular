@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeRest} se encarga de realizar tareas específicas.
+ * @fileoverview    {EmployeeRest}
  *
  * @version         2.0
  *

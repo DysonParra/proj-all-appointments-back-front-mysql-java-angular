@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ClientDTO} se encarga de realizar tareas específicas.
+ * @fileoverview    {ClientDTO}
  *
  * @version         2.0
  *

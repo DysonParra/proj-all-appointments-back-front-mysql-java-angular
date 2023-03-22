@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleMapping} se encarga de realizar tareas específicas.
+ * @fileoverview    {ScheduleMapping}
  *
  * @version         2.0
  *

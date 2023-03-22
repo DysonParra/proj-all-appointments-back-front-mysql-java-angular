@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleRepository} se encarga de realizar tareas específicas.
+ * @fileoverview    {ScheduleRepository}
  *
  * @version         2.0
  *

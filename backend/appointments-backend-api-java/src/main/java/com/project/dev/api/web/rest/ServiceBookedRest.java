@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceBookedRest} se encarga de realizar tareas específicas.
+ * @fileoverview    {ServiceBookedRest}
  *
  * @version         2.0
  *

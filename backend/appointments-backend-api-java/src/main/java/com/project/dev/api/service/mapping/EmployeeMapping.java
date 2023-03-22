@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeMapping} se encarga de realizar tareas específicas.
+ * @fileoverview    {EmployeeMapping}
  *
  * @version         2.0
  *

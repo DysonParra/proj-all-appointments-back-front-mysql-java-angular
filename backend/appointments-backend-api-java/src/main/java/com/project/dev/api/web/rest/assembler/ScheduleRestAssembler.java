@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleRestAssembler} se encarga de realizar tareas específicas.
+ * @fileoverview    {ScheduleRestAssembler}
  *
  * @version         2.0
  *

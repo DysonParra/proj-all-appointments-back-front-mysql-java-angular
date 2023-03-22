@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentRest} se encarga de realizar tareas específicas.
+ * @fileoverview    {AppointmentRest}
  *
  * @version         2.0
  *

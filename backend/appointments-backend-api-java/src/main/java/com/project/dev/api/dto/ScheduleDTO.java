@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleDTO} se encarga de realizar tareas específicas.
+ * @fileoverview    {ScheduleDTO}
  *
  * @version         2.0
  *
