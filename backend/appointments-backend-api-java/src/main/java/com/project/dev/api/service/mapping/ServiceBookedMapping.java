@@ -20,7 +20,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * TODO: Definición de {@code ServiceBookedMapping}.
+ * TODO: Description of {@code ServiceBookedMapping}.
  *
  * @author Dyson Parra
  * @since 11
@@ -51,7 +51,7 @@ public interface ServiceBookedMapping extends GenericMapping<ServiceBookedDTO, S
     public ServiceBookedDTO getDto(ServiceBooked entity);
 
     /**
-     * TODO: Definición de {@code withId}.
+     * TODO: Description of {@code withId}.
      *
      * @param strId
      * @return

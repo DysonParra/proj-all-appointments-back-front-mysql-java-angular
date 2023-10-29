@@ -20,7 +20,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * TODO: Definición de {@code ScheduleMapping}.
+ * TODO: Description of {@code ScheduleMapping}.
  *
  * @author Dyson Parra
  * @since 11
@@ -51,7 +51,7 @@ public interface ScheduleMapping extends GenericMapping<ScheduleDTO, Schedule> {
     public ScheduleDTO getDto(Schedule entity);
 
     /**
-     * TODO: Definición de {@code withId}.
+     * TODO: Description of {@code withId}.
      *
      * @param strId
      * @return

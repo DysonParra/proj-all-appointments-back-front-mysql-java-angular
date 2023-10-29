@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
- * TODO: Definición de {@code EmployeeRepository}.
+ * TODO: Description of {@code EmployeeRepository}.
  *
  * @author Dyson Parra
  * @since 11

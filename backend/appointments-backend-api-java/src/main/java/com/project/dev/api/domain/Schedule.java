@@ -24,7 +24,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO: Definición de {@code Schedule}.
+ * TODO: Description of {@code Schedule}.
  *
  * @author Dyson Parra
  * @since 11

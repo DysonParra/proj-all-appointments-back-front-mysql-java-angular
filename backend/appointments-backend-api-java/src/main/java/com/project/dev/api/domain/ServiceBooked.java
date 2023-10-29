@@ -24,7 +24,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO: Definición de {@code ServiceBooked}.
+ * TODO: Description of {@code ServiceBooked}.
  *
  * @author Dyson Parra
  * @since 11

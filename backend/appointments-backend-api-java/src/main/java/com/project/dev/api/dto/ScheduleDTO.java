@@ -22,7 +22,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO: Definición de {@code ScheduleDTO}.
+ * TODO: Description of {@code ScheduleDTO}.
  *
  * @author Dyson Parra
  * @since 11

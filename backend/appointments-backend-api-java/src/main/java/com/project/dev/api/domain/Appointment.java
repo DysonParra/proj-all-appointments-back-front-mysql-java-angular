@@ -24,7 +24,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO: Definición de {@code Appointment}.
+ * TODO: Description of {@code Appointment}.
  *
  * @author Dyson Parra
  * @since 11
