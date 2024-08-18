@@ -91,8 +91,8 @@ public class ServiceServiceImpl implements GenericService<ServiceDTO> {
         Service entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ServiceDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        ServiceDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**

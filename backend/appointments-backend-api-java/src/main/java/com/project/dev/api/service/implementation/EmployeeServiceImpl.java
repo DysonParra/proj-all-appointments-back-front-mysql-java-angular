@@ -91,8 +91,8 @@ public class EmployeeServiceImpl implements GenericService<EmployeeDTO> {
         Employee entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        EmployeeDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        EmployeeDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**

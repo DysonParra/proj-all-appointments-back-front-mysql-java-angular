@@ -91,8 +91,8 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
         ServiceBooked entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ServiceBookedDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        ServiceBookedDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**

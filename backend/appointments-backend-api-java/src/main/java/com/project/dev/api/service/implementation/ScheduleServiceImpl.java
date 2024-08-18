@@ -91,8 +91,8 @@ public class ScheduleServiceImpl implements GenericService<ScheduleDTO> {
         Schedule entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ScheduleDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        ScheduleDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**

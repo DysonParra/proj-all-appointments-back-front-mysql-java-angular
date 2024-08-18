@@ -91,8 +91,8 @@ public class AppointmentServiceImpl implements GenericService<AppointmentDTO> {
         Appointment entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        AppointmentDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        AppointmentDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**

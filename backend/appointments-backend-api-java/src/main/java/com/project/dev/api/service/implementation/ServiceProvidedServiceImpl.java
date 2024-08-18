@@ -91,8 +91,8 @@ public class ServiceProvidedServiceImpl implements GenericService<ServiceProvide
         ServiceProvided entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ServiceProvidedDTO actualEntity = entityMapping.getDto(entity);
-        return actualEntity;
+        ServiceProvidedDTO currrentEntity = entityMapping.getDto(entity);
+        return currrentEntity;
     }
 
     /**
