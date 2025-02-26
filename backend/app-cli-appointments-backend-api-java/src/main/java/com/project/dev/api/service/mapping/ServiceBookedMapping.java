@@ -49,7 +49,7 @@ public interface ServiceBookedMapping extends GenericMapping<ServiceBookedDTO, S
     public ServiceBookedDTO getDto(ServiceBooked entity);
 
     /**
-     * TODO: Description of {@code withId}.
+     * TODO: Description of method {@code withId}.
      *
      * @param strId
      * @return

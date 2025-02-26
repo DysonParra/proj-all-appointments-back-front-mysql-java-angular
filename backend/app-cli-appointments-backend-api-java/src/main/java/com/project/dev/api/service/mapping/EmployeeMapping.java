@@ -49,7 +49,7 @@ public interface EmployeeMapping extends GenericMapping<EmployeeDTO, Employee> {
     public EmployeeDTO getDto(Employee entity);
 
     /**
-     * TODO: Description of {@code withId}.
+     * TODO: Description of method {@code withId}.
      *
      * @param strId
      * @return

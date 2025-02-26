@@ -49,7 +49,7 @@ public interface ServiceMapping extends GenericMapping<ServiceDTO, Service> {
     public ServiceDTO getDto(Service entity);
 
     /**
-     * TODO: Description of {@code withId}.
+     * TODO: Description of method {@code withId}.
      *
      * @param strId
      * @return
