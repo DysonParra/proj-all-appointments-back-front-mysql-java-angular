@@ -42,9 +42,7 @@ public class ServiceProvided implements Serializable {
     @Column(nullable = false)
     private Long intId;
     private BigDecimal decPrice;
-    @JoinColumn(name = "intAppointmentI", referencedColumnName = "intId")
     private Long intAppointmentI;
-    @JoinColumn(name = "intServiceId", referencedColumnName = "intId")
     private Long intServiceId;
 
 }

@@ -59,11 +59,8 @@ public class Appointment implements Serializable {
     @Lob
     @Column(columnDefinition = "TEXT")
     private String txtCancelationReason;
-    @JoinColumn(name = "intClientId", referencedColumnName = "intId")
     private Long intClientId;
-    @JoinColumn(name = "intEmployeeCreated", referencedColumnName = "intId")
     private Long intEmployeeCreated;
-    @JoinColumn(name = "intEmployeeId", referencedColumnName = "intId")
     private Long intEmployeeId;
 
 }

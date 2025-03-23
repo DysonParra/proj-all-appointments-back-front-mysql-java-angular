@@ -45,7 +45,6 @@ public class Schedule implements Serializable {
     private Date dtFrom;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtTo;
-    @JoinColumn(name = "intEmployeeId", referencedColumnName = "intId")
     private Long intEmployeeId;
 
 }
