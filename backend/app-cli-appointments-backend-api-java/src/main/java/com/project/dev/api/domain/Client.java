@@ -41,11 +41,8 @@ public class Client implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false)
     private Long intId;
-    @Column(length = 128)
     private String strClientName;
-    @Column(length = 128)
     private String strContactMobile;
-    @Column(length = 128)
     private String strContactMail;
 
 }

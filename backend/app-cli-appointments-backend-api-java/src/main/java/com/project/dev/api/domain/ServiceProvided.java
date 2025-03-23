@@ -41,7 +41,6 @@ public class ServiceProvided implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false)
     private Long intId;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decPrice;
     @JoinColumn(name = "intAppointmentI", referencedColumnName = "intId")
     private Long intAppointmentI;

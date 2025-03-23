@@ -43,9 +43,7 @@ public class Appointment implements Serializable {
     private Long intId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtDateCreated;
-    @Column(length = 128)
     private String strClientName;
-    @Column(length = 128)
     private String strClientContact;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtStartTime;
@@ -53,17 +51,13 @@ public class Appointment implements Serializable {
     private Date dtEndTimeExpected;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtEndTime;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decPriceExpected;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decPriceFull;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decDiscount;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decPriceFinal;
     private Boolean bitCanceled;
     @Lob
-    @Column(length = 65535, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String txtCancelationReason;
     @JoinColumn(name = "intClientId", referencedColumnName = "intId")
     private Long intClientId;

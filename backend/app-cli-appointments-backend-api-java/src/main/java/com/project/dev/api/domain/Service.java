@@ -41,10 +41,8 @@ public class Service implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false)
     private Long intId;
-    @Column(length = 128)
     private String strServiceName;
     private Long intDuration;
-    @Column(precision = 10, scale = 2)
     private BigDecimal decPrice;
 
 }

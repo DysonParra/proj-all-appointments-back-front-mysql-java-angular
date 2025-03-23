@@ -41,9 +41,7 @@ public class Employee implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false)
     private Long intId;
-    @Column(length = 64)
     private String strFirstName;
-    @Column(length = 64)
     private String strLastName;
 
 }
