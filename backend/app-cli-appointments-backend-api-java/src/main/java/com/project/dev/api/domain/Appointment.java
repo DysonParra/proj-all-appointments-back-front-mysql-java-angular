@@ -44,6 +44,9 @@ public class Appointment implements Serializable {
     private Long intId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtDateCreated;
+    private Long intEmployeeCreated;
+    private Long intClientId;
+    private Long intEmployeeId;
     private String strClientName;
     private String strClientContact;
     @Temporal(TemporalType.TIMESTAMP)
@@ -60,8 +63,5 @@ public class Appointment implements Serializable {
     @Lob
     @Column(columnDefinition = "TEXT")
     private String txtCancelationReason;
-    private Long intClientId;
-    private Long intEmployeeCreated;
-    private Long intEmployeeId;
 
 }

@@ -35,8 +35,8 @@ import lombok.NoArgsConstructor;
 public class ScheduleDTO {
 
     private Long intId;
+    private Long intEmployeeId;
     private Date dtFrom;
     private Date dtTo;
-    private Long intEmployeeId;
 
 }

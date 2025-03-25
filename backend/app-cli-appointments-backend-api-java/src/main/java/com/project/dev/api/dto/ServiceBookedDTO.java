@@ -35,8 +35,8 @@ import lombok.NoArgsConstructor;
 public class ServiceBookedDTO {
 
     private Long intId;
-    private BigDecimal decPrice;
     private Long intAppointmentI;
     private Long intServiceId;
+    private BigDecimal decPrice;
 
 }

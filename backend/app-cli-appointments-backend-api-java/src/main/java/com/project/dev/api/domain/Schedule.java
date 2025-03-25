@@ -42,10 +42,10 @@ public class Schedule implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false)
     private Long intId;
+    private Long intEmployeeId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtFrom;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtTo;
-    private Long intEmployeeId;
 
 }

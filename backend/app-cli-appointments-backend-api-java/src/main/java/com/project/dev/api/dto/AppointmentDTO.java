@@ -36,6 +36,9 @@ public class AppointmentDTO {
 
     private Long intId;
     private Date dtDateCreated;
+    private Long intEmployeeCreated;
+    private Long intClientId;
+    private Long intEmployeeId;
     private String strClientName;
     private String strClientContact;
     private Date dtStartTime;
@@ -47,8 +50,5 @@ public class AppointmentDTO {
     private BigDecimal decPriceFinal;
     private Boolean bitCanceled;
     private String txtCancelationReason;
-    private Long intClientId;
-    private Long intEmployeeCreated;
-    private Long intEmployeeId;
 
 }
