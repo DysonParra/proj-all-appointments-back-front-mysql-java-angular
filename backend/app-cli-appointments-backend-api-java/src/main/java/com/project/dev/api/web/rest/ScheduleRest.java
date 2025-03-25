@@ -88,7 +88,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @GetMapping("/Schedule")
+    @GetMapping("/schedule")
     public CollectionModel<EntityModel<ScheduleDTO>> getAllEntities() {
         log.debug("REST request to get all entities type Schedule");
         List<EntityModel<ScheduleDTO>> entities = null;
@@ -118,14 +118,14 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @GetMapping("/Schedule/pages")
+    @GetMapping("/schedule/pages")
     public ResponseEntity<CollectionModel<EntityModel<ScheduleDTO>>> getAllEntitiesPaged(Pageable pageable) {
         log.debug("REST request to get a page of all entities type Schedule");
         Page<ScheduleDTO> page = null;
         List<EntityModel<ScheduleDTO>> entities = null;
         try {
             page = entityService.getAllEntitiesPaged(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/Schedule/pages");
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/schedule/pages");
             entities = page.getContent().parallelStream()
                     .map(entityRestAssembler::toModel)
                     .collect(Collectors.toList());
@@ -151,7 +151,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @PostMapping("/Schedule")
+    @PostMapping("/schedule")
     public ResponseEntity<?> saveEntity(@RequestBody ScheduleDTO entityDTO) {
         log.debug("POST request to save a new entity type Schedule");
         EntityModel<ScheduleDTO> resource = null;
@@ -180,7 +180,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @PutMapping("/Schedule/{id}")
+    @PutMapping("/schedule/{id}")
     public ResponseEntity<?> updateEntity(@RequestBody ScheduleDTO entityDTO, @PathVariable String id) {
         return saveEntity(entityDTO);
     }
@@ -198,7 +198,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @GetMapping("/Schedule/{id}")
+    @GetMapping("/schedule/{id}")
     public ResponseEntity<EntityModel<ScheduleDTO>> getEntity(@PathVariable String id) {
         log.debug(String.format("REST request to get the entity type Schedule with id {} ", id));
         try {
@@ -224,7 +224,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @DeleteMapping("/Schedule/{id}")
+    @DeleteMapping("/schedule/{id}")
     public ResponseEntity<?> deleteEntity(@PathVariable String id) {
         log.debug("DELETE request to delete the entity Schedule with id : {}", id);
         try {
@@ -248,7 +248,7 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @GetMapping("/Schedule/search/{query}")
+    @GetMapping("/schedule/search/{query}")
     public CollectionModel<EntityModel<ScheduleDTO>> searchEntities(@PathVariable String query) {
         log.debug("REST request to get the entities type Schedule with the search : {} ", query);
         List<EntityModel<ScheduleDTO>> entities = null;
@@ -279,14 +279,14 @@ public class ScheduleRest {
         @ApiResponse(code = 403, message = "Prohibido acceder al recurso que intenta alcanzar"),
         @ApiResponse(code = 404, message = "No se encuentra el recurso que intentabas alcanzar")
     })
-    @GetMapping("/Schedule/search/{query}/pages")
+    @GetMapping("/schedule/search/{query}/pages")
     public ResponseEntity<CollectionModel<EntityModel<ScheduleDTO>>> searchEntitiesPaged(@PathVariable String query, Pageable pageable) {
         log.debug("REST request to get a page of the entities type Schedule with the search : {}", query);
         Page<ScheduleDTO> page = null;
         List<EntityModel<ScheduleDTO>> entities = null;
         try {
             page = entityService.searchEntitiesPaged(query, pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/Schedule/search/{query}/pages/" + query);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/schedule/search/{query}/pages/" + query);
             entities = page.getContent().parallelStream()
                     .map(entityRestAssembler::toModel)
                     .collect(Collectors.toList());
