@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeService}
+ * @overview        {EmployeeService}
  *
  * @version         2.0
  *

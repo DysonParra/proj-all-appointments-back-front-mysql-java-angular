@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeComponent}
+ * @overview        {EmployeeComponent}
  *
  * @version         2.0
  *

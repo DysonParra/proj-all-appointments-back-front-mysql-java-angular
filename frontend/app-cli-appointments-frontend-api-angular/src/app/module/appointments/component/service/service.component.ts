@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceComponent}
+ * @overview        {ServiceComponent}
  *
  * @version         2.0
  *

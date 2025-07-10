@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleDTO}
+ * @overview        {ScheduleDTO}
  *
  * @version         2.0
  *

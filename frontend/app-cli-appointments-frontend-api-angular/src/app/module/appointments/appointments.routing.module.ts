@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentsRoutingModule}
+ * @overview        {AppointmentsRoutingModule}
  *
  * @version         2.0
  *
@@ -15,28 +15,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppointmentViewComponent } from './view/appointment-view/appointment-view.component';import { ClientViewComponent } from './view/client-view/client-view.component';import { EmployeeViewComponent } from './view/employee-view/employee-view.component';import { ScheduleViewComponent } from './view/schedule-view/schedule-view.component';import { ServiceViewComponent } from './view/service-view/service-view.component';import { ServiceBookedViewComponent } from './view/service-booked-view/service-booked-view.component';import { ServiceProvidedViewComponent } from './view/service-provided-view/service-provided-view.component';
+import { AppointmentViewComponent } from './view/appointment-view/appointment-view.component';
+import { ClientViewComponent } from './view/client-view/client-view.component';
+import { EmployeeViewComponent } from './view/employee-view/employee-view.component';
+import { ScheduleViewComponent } from './view/schedule-view/schedule-view.component';
+import { ServiceViewComponent } from './view/service-view/service-view.component';
+import { ServiceBookedViewComponent } from './view/service-booked-view/service-booked-view.component';
+import { ServiceProvidedViewComponent } from './view/service-provided-view/service-provided-view.component';
 
 const routes: Routes = [
     {
         path: 'appointment',
         component: AppointmentViewComponent
-    },    {
+    },
+    {
         path: 'client',
         component: ClientViewComponent
-    },    {
+    },
+    {
         path: 'employee',
         component: EmployeeViewComponent
-    },    {
+    },
+    {
         path: 'schedule',
         component: ScheduleViewComponent
-    },    {
+    },
+    {
         path: 'service',
         component: ServiceViewComponent
-    },    {
+    },
+    {
         path: 'service-booked',
         component: ServiceBookedViewComponent
-    },    {
+    },
+    {
         path: 'service-provided',
         component: ServiceProvidedViewComponent
     },

@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceProvidedDTO}
+ * @overview        {ServiceProvidedDTO}
  *
  * @version         2.0
  *

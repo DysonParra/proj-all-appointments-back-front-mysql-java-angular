@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentComponent}
+ * @overview        {AppointmentComponent}
  *
  * @version         2.0
  *

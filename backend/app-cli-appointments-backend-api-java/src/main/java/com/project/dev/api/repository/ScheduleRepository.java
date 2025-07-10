@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleRepository}
+ * @overview        {ScheduleRepository}
  *
  * @version         2.0
  *

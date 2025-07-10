@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentFacade}
+ * @overview        {AppointmentFacade}
  *
  * @version         2.0
  *

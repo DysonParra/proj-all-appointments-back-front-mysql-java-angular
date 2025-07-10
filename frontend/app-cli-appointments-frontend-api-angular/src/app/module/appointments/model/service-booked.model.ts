@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceBookedViewModel}
+ * @overview        {ServiceBookedViewModel}
  *
  * @version         2.0
  *

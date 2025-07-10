@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {HeaderComponent}
+ * @overview        {HeaderComponent}
  *
  * @version         2.0
  *
@@ -44,27 +44,33 @@ export class HeaderComponent implements OnInit {
                 name: 'Appointment',
                 route: 'appointment',
                 items: []
-            },            {
+            },
+            {
                 name: 'Client',
                 route: 'client',
                 items: []
-            },            {
+            },
+            {
                 name: 'Employee',
                 route: 'employee',
                 items: []
-            },            {
+            },
+            {
                 name: 'Schedule',
                 route: 'schedule',
                 items: []
-            },            {
+            },
+            {
                 name: 'Service',
                 route: 'service',
                 items: []
-            },            {
+            },
+            {
                 name: 'ServiceBooked',
                 route: 'service-booked',
                 items: []
-            },            {
+            },
+            {
                 name: 'ServiceProvided',
                 route: 'service-provided',
                 items: []

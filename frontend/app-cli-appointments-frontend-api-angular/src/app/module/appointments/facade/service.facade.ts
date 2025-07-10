@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceFacade}
+ * @overview        {ServiceFacade}
  *
  * @version         2.0
  *

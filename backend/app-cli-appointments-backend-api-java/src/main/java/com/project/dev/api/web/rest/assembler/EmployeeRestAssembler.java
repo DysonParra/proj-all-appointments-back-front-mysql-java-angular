@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EmployeeRestAssembler}
+ * @overview        {EmployeeRestAssembler}
  *
  * @version         2.0
  *

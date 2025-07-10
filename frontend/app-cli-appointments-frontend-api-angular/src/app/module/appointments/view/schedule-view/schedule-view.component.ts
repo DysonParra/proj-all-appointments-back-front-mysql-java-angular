@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleViewComponent}
+ * @overview        {ScheduleViewComponent}
  *
  * @version         2.0
  *

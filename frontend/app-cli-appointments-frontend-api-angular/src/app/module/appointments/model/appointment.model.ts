@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentViewModel}
+ * @overview        {AppointmentViewModel}
  *
  * @version         2.0
  *

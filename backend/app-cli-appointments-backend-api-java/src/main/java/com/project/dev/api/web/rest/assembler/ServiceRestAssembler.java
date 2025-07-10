@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceRestAssembler}
+ * @overview        {ServiceRestAssembler}
  *
  * @version         2.0
  *

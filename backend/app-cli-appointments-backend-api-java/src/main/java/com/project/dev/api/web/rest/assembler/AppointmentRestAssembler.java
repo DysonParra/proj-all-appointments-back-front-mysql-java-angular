@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {AppointmentRestAssembler}
+ * @overview        {AppointmentRestAssembler}
  *
  * @version         2.0
  *

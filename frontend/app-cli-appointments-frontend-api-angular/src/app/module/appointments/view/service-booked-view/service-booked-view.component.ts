@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceBookedViewComponent}
+ * @overview        {ServiceBookedViewComponent}
  *
  * @version         2.0
  *

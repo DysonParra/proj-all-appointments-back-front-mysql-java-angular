@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceBookedServiceImpl}
+ * @overview        {ServiceBookedServiceImpl}
  *
  * @version         2.0
  *
@@ -55,7 +55,7 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
      * Obtiene todas las entidades existentes.
      *
      * @return lista de entidades almacenadas en la base de datos.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public List<ServiceBookedDTO> getAllEntities() throws Exception {
@@ -64,15 +64,15 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
     }
 
     /**
-     * Obtiene todas los registros según la paginación suministrada.
+     * Obtiene todos los registros según la paginación suministrada.
      *
      * @param pageable indica la manera en que se paginarán los registros obtenidos.
      * @return entidades almacenadas en base de datos de forma paginada.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public Page<ServiceBookedDTO> getAllEntitiesPaged(Pageable pageable) throws Exception {
-        log.debug("Solicitud para listar todas las Entidades tipo ServiceBooked con paginacion");
+        log.debug("Solicitud para listar todas las Entidades tipo ServiceBooked con paginación");
         return entityRepository.findAll(pageable).map(entityMapping::getDto);
     }
 
@@ -81,26 +81,26 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
      *
      * @param entityDTO entidad que va a ser almacenada.
      * @return entidad almacenada en la base de datos.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public ServiceBookedDTO saveUpdate(ServiceBookedDTO entityDTO) throws Exception {
         log.debug("Solicitud para guardar la entidad tipo ServiceBooked: {}", entityDTO);
 
-        //TODO: agregar validacion especifica del servicio.
+        //TODO: agregar validación específica del servicio.
         ServiceBooked entity = entityMapping.getEntity(entityDTO);
         entity = entityRepository.save(entity);
 
-        ServiceBookedDTO currrentEntity = entityMapping.getDto(entity);
-        return currrentEntity;
+        ServiceBookedDTO dto = entityMapping.getDto(entity);
+        return dto;
     }
 
     /**
-     * Obtiene la entidad según el id suministrado.
+     * Obtiene la entidad usando el ID suministrado.
      *
      * @param id es el identificador de la entidad.
      * @return entidad almacenada en la base de datos.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public ServiceBookedDTO getEntity(String id) throws Exception {
@@ -114,7 +114,7 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
      * Elimina los datos de una entidad.
      *
      * @param id identificador de la entidad que va a ser eliminada.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public void deleteEntity(String id) throws Exception {
@@ -127,7 +127,7 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
      *
      * @param query indica la búsqueda que se hará en la base de datos.
      * @return entidades almacenadas en base de datos encontradas.
-     * @throws Exception si ocurre algún error.
+     * @throws Exception en caso de ocurrir algún error.
      */
     @Override
     public List<ServiceBookedDTO> searchEntities(String query) throws Exception {
@@ -136,7 +136,7 @@ public class ServiceBookedServiceImpl implements GenericService<ServiceBookedDTO
     }
 
     /**
-     * Obtiene registros de la base de datos según la búsqueda y paginación suministradas.
+     * Obtiene registros de la base de datos según la búsqueda y la paginación que se indicaron.
      *
      * @param query    indica la búsqueda que se hará en la base de datos.
      * @param pageable indica la manera en que se paginarán los registros obtenidos.

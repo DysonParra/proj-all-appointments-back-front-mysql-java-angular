@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceProvidedContainerComponent}
+ * @overview        {ServiceProvidedContainerComponent}
  *
  * @version         2.0
  *

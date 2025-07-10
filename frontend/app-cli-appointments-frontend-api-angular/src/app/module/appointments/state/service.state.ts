@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ServiceState}
+ * @overview        {ServiceState}
  *
  * @version         2.0
  *

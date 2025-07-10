@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleRestAssembler}
+ * @overview        {ScheduleRestAssembler}
  *
  * @version         2.0
  *

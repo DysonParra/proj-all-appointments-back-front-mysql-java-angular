@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ScheduleService}
+ * @overview        {ScheduleService}
  *
  * @version         2.0
  *
